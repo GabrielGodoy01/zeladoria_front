@@ -11,8 +11,6 @@ class Demand {
   final DateTime createdAt;
   final DateTime updatedAt;
 
-  static const int minNameLenght = 2;
-
   Demand({
     this.id,
     required this.demandStatus,
@@ -22,18 +20,4 @@ class Demand {
     required this.createdAt,
     required this.updatedAt,
   });
-
-  static bool validateName(String name) {
-    if (name.length < Demand.minNameLenght) {
-      return false;
-    }
-    return true;
-  }
-
-  static bool validateEmail(String email) {
-    RegExp regex = RegExp(
-      r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)",
-    );
-    return regex.hasMatch(email);
-  }
 }
