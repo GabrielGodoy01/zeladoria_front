@@ -10,7 +10,7 @@ void main() {
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 
-  test('[TEST] - adress', () {
+  test('[TEST] - subservice', () {
     expect(
       () => Subservice(
         subserviceType: SubserviceTypeEnum.LANDSCAPE_AREAS,
