@@ -1,4 +1,5 @@
 import 'package:clean_flutter_template/shared/domain/storage/local_storage_interface.dart';
+import 'package:clean_flutter_template/shared/helpers/enums/token_enum.dart';
 import 'package:clean_flutter_template/shared/helpers/services/http_request_interface.dart';
 import 'package:clean_flutter_template/shared/helpers/services/http_service.dart';
 import 'package:dio/dio.dart';
@@ -28,8 +29,14 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 200, requestOptions: RequestOptions());
-      when(httpService.get('url')).thenAnswer((_) async => response);
-      var res = await httpService.get('url');
+      when(httpRequest.get(
+        'url',
+      )).thenAnswer((_) async => response);
+      var res = await httpService.get(
+        'url',
+        data: null,
+        tokenType: TokenEnum.NOTOKEN,
+      );
       expect(res.statusCode, 200);
     });
 
@@ -42,8 +49,9 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 500, requestOptions: RequestOptions());
-      when(httpService.get('url')).thenAnswer((_) async => response);
-      var res = await httpService.get('url');
+      when(httpRequest.get('url')).thenAnswer((_) async => response);
+      var res = await httpService.get('url',
+          data: null, tokenType: TokenEnum.NOTOKEN);
       expect(res.statusCode, 500);
     });
   });
@@ -58,7 +66,7 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 200, requestOptions: RequestOptions());
-      when(httpService.post('url')).thenAnswer((_) async => response);
+      when(httpRequest.post('url', null)).thenAnswer((_) async => response);
       var res = await httpService.post('url');
       expect(res.statusCode, 200);
     });
@@ -72,7 +80,7 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 500, requestOptions: RequestOptions());
-      when(httpService.post('url')).thenAnswer((_) async => response);
+      when(httpRequest.post('url', null)).thenAnswer((_) async => response);
       var res = await httpService.post('url');
       expect(res.statusCode, 500);
     });
@@ -88,7 +96,7 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 200, requestOptions: RequestOptions());
-      when(httpService.put('url')).thenAnswer((_) async => response);
+      when(httpRequest.put('url', null)).thenAnswer((_) async => response);
       var res = await httpService.put('url');
       expect(res.statusCode, 200);
     });
@@ -102,7 +110,7 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 500, requestOptions: RequestOptions());
-      when(httpService.put('url')).thenAnswer((_) async => response);
+      when(httpRequest.put('url', null)).thenAnswer((_) async => response);
       var res = await httpService.put('url');
       expect(res.statusCode, 500);
     });
