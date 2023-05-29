@@ -11,7 +11,7 @@ abstract class IGetDemandUsecase {
 class GetDemandUsecase implements IGetDemandUsecase {
   final IDemandRepository repository;
 
-  GetDemandUsecase({required this.repository});
+  GetDemandUsecase(this.repository);
 
   @override
   Future<Either<Failure, Demand>> call(String id) async {

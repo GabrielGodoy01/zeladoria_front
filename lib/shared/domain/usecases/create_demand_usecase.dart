@@ -11,7 +11,7 @@ abstract class ICreateDemandUsecase {
 class CreateDemandUsecase implements ICreateDemandUsecase {
   final IDemandRepository repository;
 
-  CreateDemandUsecase({required this.repository});
+  CreateDemandUsecase(this.repository);
 
   @override
   Future<Either<Failure, Demand>> call(Demand demand) async {

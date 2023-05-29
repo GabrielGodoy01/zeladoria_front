@@ -11,7 +11,7 @@ abstract class IUpdateDemandUsecase {
 class UpdateDemandUsecase implements IUpdateDemandUsecase {
   final IDemandRepository repository;
 
-  UpdateDemandUsecase({required this.repository});
+  UpdateDemandUsecase(this.repository);
 
   @override
   Future<Either<Failure, Demand>> call(Demand demand) async {

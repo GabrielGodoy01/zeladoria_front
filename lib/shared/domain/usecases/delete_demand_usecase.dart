@@ -11,7 +11,7 @@ abstract class IDeleteDemandUsecase {
 class DeleteDemandUsecase implements IDeleteDemandUsecase {
   final IDemandRepository repository;
 
-  DeleteDemandUsecase({required this.repository});
+  DeleteDemandUsecase(this.repository);
 
   @override
   Future<Either<Failure, Demand>> call(String id) async {
