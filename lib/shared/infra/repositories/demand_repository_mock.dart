@@ -85,10 +85,14 @@ class DemandRepositoryMock implements IDemandRepository {
   }
 
   @override
-  Future<Either<Failure, Demand>> deleteDemand(String id) {
-    demands.removeWhere((element) => element.id == id);
-    return Future.value(
-        Right(demands.where((element) => element.id == id).first));
+  Future<Either<Failure, Demand>> deleteDemand(String id) async {
+    for (var i = 0; i < demands.length; i++) {
+      if (demands[i].id == id) {
+        demands.removeAt(i);
+        return right(demands[i]);
+      }
+    }
+    return left(NoItemsFound(message: "id"));
   }
 
   @override
@@ -97,15 +101,23 @@ class DemandRepositoryMock implements IDemandRepository {
   }
 
   @override
-  Future<Either<Failure, Demand>> getDemand(String id) {
-    return Future.value(
-        Right(demands.where((element) => element.id == id).first));
+  Future<Either<Failure, Demand>> getDemand(String id) async {
+    for (var demand in demands) {
+      if (demand.id == id) {
+        return right(demand);
+      }
+    }
+    return left(NoItemsFound(message: "id"));
   }
 
   @override
-  Future<Either<Failure, Demand>> updateDemand(Demand demand) {
-    demands.removeWhere((element) => element.id == demand.id);
-    demands.add(demand);
-    return Future.value(Right(demand));
+  Future<Either<Failure, Demand>> updateDemand(Demand demandToUpdate) async {
+    for (var demand in demands) {
+      if (demand.id == demandToUpdate.id) {
+        demand = demandToUpdate;
+        return right(demand);
+      }
+    }
+    return left(NoItemsFound(message: "id"));
   }
 }
