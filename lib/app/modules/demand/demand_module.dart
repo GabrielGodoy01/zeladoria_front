@@ -6,7 +6,7 @@ import '../../../shared/helpers/services/http_request_interface.dart';
 import '../../../shared/helpers/services/http_service.dart';
 import 'home/presenter/ui/pages/home_page.dart';
 
-class UserModule extends Module {
+class DemandModule extends Module {
   @override
   List<Bind> get binds => [
         Bind((i) => Dio(userOptions)),

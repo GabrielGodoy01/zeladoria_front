@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'modules/user/user_module.dart';
+import 'modules/demand/demand_module.dart';
 
 class AppModule extends Module {
   @override
@@ -9,7 +9,7 @@ class AppModule extends Module {
   List<ModularRoute> get routes => [
         ModuleRoute(
           Modular.initialRoute,
-          module: UserModule(),
+          module: DemandModule(),
         ),
       ];
 }

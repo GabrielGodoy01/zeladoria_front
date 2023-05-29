@@ -1,5 +1,5 @@
-import 'package:clean_flutter_template/app/modules/user/home/presenter/ui/pages/home_page.dart';
-import 'package:clean_flutter_template/app/modules/user/home/presenter/ui/widgets/home_button_widget.dart';
+import 'package:clean_flutter_template/app/modules/demand/home/presenter/ui/pages/home_page.dart';
+import 'package:clean_flutter_template/app/modules/demand/home/presenter/ui/widgets/home_button_widget.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/widgets/footer_widget.dart';
 import 'package:clean_flutter_template/shared/widgets/logo_widget.dart';

@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:clean_flutter_template/app/modules/user/user_module.dart';
+import 'package:clean_flutter_template/app/modules/demand/demand_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class EnvironmentConfig {
@@ -36,5 +36,5 @@ class EnvironmentConfig {
 }
 
 Future awaitModular() async {
-  return await Modular.isModuleReady<UserModule>();
+  return await Modular.isModuleReady<DemandModule>();
 }
