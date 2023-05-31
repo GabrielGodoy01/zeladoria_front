@@ -4,7 +4,7 @@ import '../../../shared/helpers/services/dio_http_request.dart';
 import '../../../shared/helpers/services/dio_options.dart';
 import '../../../shared/helpers/services/http_request_interface.dart';
 import '../../../shared/helpers/services/http_service.dart';
-import 'home/presenter/ui/pages/home_page.dart';
+import 'all-demands/presenter/ui/pages/all_demands_page.dart';
 
 class DemandModule extends Module {
   @override
@@ -19,7 +19,7 @@ class DemandModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           Modular.initialRoute,
-          child: (context, args) => const HomePage(),
+          child: (context, args) => const AllDemandsPage(),
         ),
       ];
 }

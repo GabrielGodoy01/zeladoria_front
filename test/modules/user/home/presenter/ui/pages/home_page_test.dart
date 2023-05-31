@@ -1,5 +1,5 @@
-import 'package:clean_flutter_template/app/modules/demand/home/presenter/ui/pages/home_page.dart';
-import 'package:clean_flutter_template/app/modules/demand/home/presenter/ui/widgets/home_button_widget.dart';
+import 'package:clean_flutter_template/app/modules/demand/all-demands/presenter/ui/pages/all_demands_page.dart';
+import 'package:clean_flutter_template/app/modules/demand/all-demands/presenter/ui/widgets/home_button_widget.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/widgets/footer_widget.dart';
 import 'package:clean_flutter_template/shared/widgets/logo_widget.dart';
@@ -13,11 +13,14 @@ void main() {
   });
 
   testWidgets('[TEST] - HomePage must show some widgets', (widgetTester) async {
-    await widgetTester.pumpWidget(MaterialApp(localizationsDelegates: const [
-      S.delegate,
-      GlobalMaterialLocalizations.delegate,
-      GlobalWidgetsLocalizations.delegate,
-    ], supportedLocales: S.delegate.supportedLocales, home: const HomePage()));
+    await widgetTester.pumpWidget(MaterialApp(
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        home: const AllDemandsPage()));
     expect(find.byType(LogoWidget), findsOneWidget);
     expect(find.text(S.current.homePageTitle), findsOneWidget);
     expect(find.text(S.current.homePageSubtitle), findsOneWidget);
